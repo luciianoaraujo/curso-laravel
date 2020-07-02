@@ -1,11 +1,25 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('welcome');
+Route::any('/any', function() {
+    return 'Any';
 });
 
-Auth::routes();
+Route::match(['get', 'post'], '/match', function() {
+    return 'match';
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/register', function() {
+    return '';
+});
+
+Route::get('/empresa', function() {
+    return view('site.contact');
+});
+
+Route::get('/contato', function() {
+    return 'Contato';
+});
+
+Route::get('/', function () {
+    return 'Olá!';
+});
